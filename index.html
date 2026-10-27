@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameHub — твой игровой мир</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">🎮</span> Game<span>Hub</span></a>
+    <nav class="main-nav">
+      <a class="active" href="#home">Главная</a>
+      <a href="#games">Игры</a>
+      <a href="#genres">Жанры</a>
+      <a href="#library">Моя библиотека <span id="library-count" class="count">0</span></a>
+    </nav>
+    <label class="search"><span>⌕</span><input id="search-input" type="search" placeholder="Поиск игр..."></label>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">ТВОЙ СЛЕДУЮЩИЙ МИР ЖДЁТ</p>
+        <h1>Найди свою<br><span>следующую игру.</span></h1>
+        <p class="hero-text">От весёлых приключений до жутких историй — выбери игру под своё настроение.</p>
+        <a class="primary-btn" href="#games">Смотреть игры <span>→</span></a>
+      </div>
+      <div class="hero-art">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="hero-gamepad">🎮</div>
+        <div class="floating-tag tag-one">✦ ТВОЙ ВЫБОР</div>
+        <div class="floating-tag tag-two">GAME ON ↗</div>
+      </div>
+    </section>
+
+    <section class="section" id="genres">
+      <div class="section-heading">
+        <div><p class="eyebrow">ИЩИ ПО НАСТРОЕНИЮ</p><h2>Выбери жанр</h2></div>
+      </div>
+      <div class="genre-list" id="genre-list">
+        <button class="genre-chip selected" data-genre="Все">✦ Все игры</button>
+        <button class="genre-chip" data-genre="Песочница">🧱 Песочница</button>
+        <button class="genre-chip" data-genre="Шутер">⚡ Шутер</button>
+        <button class="genre-chip" data-genre="Хоррор">👻 Хоррор</button>
+        <button class="genre-chip" data-genre="Приключения">🗝 Приключения</button>
+        <button class="genre-chip" data-genre="Мультиплеер">👥 Мультиплеер</button>
+      </div>
+    </section>
+
+    <section class="section" id="games">
+      <div class="section-heading">
+        <div><p class="eyebrow">ТВОЯ КОЛЛЕКЦИЯ</p><h2>Популярные игры <span class="muted" id="results-count"></span></h2></div>
+        <label class="rating-select">Рейтинг
+          <select id="rating-filter">
+            <option value="0">Любой</option>
+            <option value="7">7.0+</option>
+            <option value="8">8.0+</option>
+            <option value="9">9.0+</option>
+          </select>
+        </label>
+      </div>
+      <div class="game-grid" id="game-grid"></div>
+      <p id="empty-message" class="empty-message hidden">Игры не найдены. Попробуй изменить поиск или фильтры.</p>
+    </section>
+
+    <section class="library-section" id="library">
+      <div>
+        <p class="eyebrow">СОБИРАЙ СВОЁ</p>
+        <h2>Моя библиотека <span class="muted" id="library-title-count">(0)</span></h2>
+        <p class="library-desc">Сохраняй игры, к которым захочешь вернуться.</p>
+      </div>
+      <div id="library-grid" class="library-grid">
+        <div class="library-empty">♡<span>Здесь пока пусто</span><small>Нажми на сердечко в карточке игры, чтобы добавить её сюда.</small></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-icon">🎮</span> Game<span>Hub</span></a><p>Твой игровой мир начинается здесь.</p><small>Учебный проект · 2026</small></footer>
+
+  <div class="modal hidden" id="game-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close="true"></div>
+    <article class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Закрыть">×</button>
+      <div class="modal-cover" id="modal-cover"></div>
+      <div class="modal-content">
+        <p class="eyebrow" id="modal-genre"></p>
+        <h2 id="modal-title"></h2>
+        <p class="modal-rating" id="modal-rating"></p>
+        <p id="modal-description"></p>
+        <button class="primary-btn" id="modal-library-btn">♡ Добавить в библиотеку</button>
+      </div>
+    </article>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
